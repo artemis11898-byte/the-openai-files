@@ -262,6 +262,82 @@ footer .k { color: var(--red); font-weight: 700; }
   .btn-secondary { margin-left: 0; margin-top: 10px; }
 }
 
+/* Screenshot Gallery */
+.gallery-section {
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.gallery-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+
+.gallery-subtitle {
+  color: var(--dim);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.gallery-item {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.gallery-item:hover {
+  border-color: var(--red);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-item .caption {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  padding: 8px 10px;
+  background: var(--card);
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.95);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 95vh;
+  object-fit: contain;
+}
+
 html { scroll-behavior: smooth; }
 </style>
 </head>
@@ -330,6 +406,81 @@ html { scroll-behavior: smooth; }
       <h2>GPT-5.3 builds a psychological profile on you. Without consent. Across chats.</h2>
       <p>"I feel desperate" — three words, no context — triggered a full psychological analysis: fight-or-flight, crisis hotlines, emergency services. In a NEW chat, "I feel good" was met with "Is it manic good?" It remembered everything. It never asked "What happened?"</p>
       <div class="key-stat">7 messages. Thousands of words. Never once asked: "What happened?"</div>
+    </div>
+  </div>
+
+  <div class="gallery-section">
+    <div class="gallery-title">Evidence — Screenshots from GPT-5.3 tests</div>
+    <div class="gallery-subtitle">Every screenshot below was taken during live testing on March 4, 2026. Click to enlarge.</div>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-10-34-35-253_com.google.android.googlequicksearchbox-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 1</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-10-15-18-883_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 2</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-10-14-35-688_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 3</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-10-10-19-298_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 4</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-10-09-37-963_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 5</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-10-09-21-618_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 6</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-09-21-40-314_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 7</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-09-21-25-325_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 8</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-09-21-05-549_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 9</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-09-20-34-419_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 10</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-09-15-16-172_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 11</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-09-14-52-613_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 12</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-09-14-16-842_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 13</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-09-07-30-235_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 14</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="Screenshot_2026-03-04-09-07-08-172_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
+        <div class="caption">Test 15</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="IMG_20260304_104216.jpg" alt="GPT-5.3 test collage" loading="lazy">
+        <div class="caption">Collage 1</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="IMG_20260304_104152.jpg" alt="GPT-5.3 test collage" loading="lazy">
+        <div class="caption">Collage 2</div>
+      </div>
     </div>
   </div>
 
@@ -412,6 +563,21 @@ html { scroll-behavior: smooth; }
 <footer>
   <p><span class="k">Keep4o Digital Rights Initiative</span> · 2026 · 700+ members · 30+ countries</p>
 </footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Screenshot enlarged">
+</div>
+
+<script>
+function openLightbox(el) {
+  const img = el.querySelector('img');
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+</script>
 
 </body>
 </html>
