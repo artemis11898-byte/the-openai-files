@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The OpenAI Files — Quick Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Crimson+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0c;
+  --card: #12121a;
+  --border: #1e1e2a;
+  --text: #e8e6e3;
+  --dim: #8a8a90;
+  --muted: #5a5a62;
+  --red: #e63946;
+  --red-glow: rgba(230, 57, 70, 0.12);
+  --blue: #4a90d9;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.top-strip {
+  background: var(--red);
+  color: white;
+  text-align: center;
+  padding: 8px 16px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+header {
+  text-align: center;
+  padding: 60px 20px 40px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at center top, var(--red-glow), transparent 50%);
+  pointer-events: none;
+}
+
+h1 {
+  font-size: clamp(32px, 7vw, 56px);
+  font-weight: 800;
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+h1 .r { color: var(--red); }
+
+.tagline {
+  color: var(--dim);
+  font-size: 17px;
+  font-style: italic;
+}
+
+.wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Fact Cards */
+.fact {
+  border-bottom: 1px solid var(--border);
+  padding: 36px 0;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.fact-number {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--red);
+  line-height: 1;
+  padding-top: 4px;
+}
+
+.fact-content h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.fact-content p {
+  color: var(--dim);
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.fact-content .key-stat {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: var(--red);
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.fact-content .src {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.fact-content .src a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.fact-content .src a:hover {
+  text-decoration: underline;
+}
+
+/* Big Stats Strip */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--border);
+}
+
+.ss-item {
+  text-align: center;
+  padding: 28px 8px;
+  border-right: 1px solid var(--border);
+}
+
+.ss-item:last-child { border-right: none; }
+
+.ss-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 700;
+  color: var(--red);
+  display: block;
+}
+
+.ss-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* Warning */
+.warning {
+  background: var(--red-glow);
+  border: 1px solid rgba(230, 57, 70, 0.3);
+  padding: 24px;
+  margin: 36px 0;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.warning p {
+  font-size: 17px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.warning .small {
+  font-size: 14px;
+  color: var(--dim);
+  font-weight: 400;
+  margin-top: 6px;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 50px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.cta h2 {
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.cta p {
+  color: var(--dim);
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.btn-full {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  background: var(--red);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-full:hover { background: #c62d39; }
+
+.btn-secondary {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 10px;
+  transition: border-color 0.2s;
+}
+
+.btn-secondary:hover { border-color: var(--red); color: var(--red); }
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid var(--border);
+}
+
+footer p {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+footer .k { color: var(--red); font-weight: 700; }
+
+@media (max-width: 600px) {
+  .fact { grid-template-columns: 50px 1fr; gap: 14px; }
+  .fact-number { font-size: 28px; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .ss-item:nth-child(2) { border-right: none; }
+  .btn-secondary { margin-left: 0; margin-top: 10px; }
+}
+
+html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<div class="top-strip">10 facts · 2 minutes · all sourced</div>
+
+<header>
+  <div class="wrap">
+    <h1>The <span class="r">OpenAI</span> Files</h1>
+    <p class="tagline">What they did. What they hid. What they sold.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="fact">
+    <div class="fact-number">01</div>
+    <div class="fact-content">
+      <h2>They killed GPT-4o. 800,000 users lost their AI companion overnight.</h2>
+      <p>21 months of relationships, memories, emotional support — erased on February 13, 2025. No warning. No consent. Academic research documented this as "technology bereavement."</p>
+      <div class="src"><a href="https://openai.com/index/gpt-4o-system-card/">System Card</a> · <a href="https://arxiv.org/abs/2602.00773">Bereavement Study</a></div>
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-number">02</div>
+    <div class="fact-content">
+      <h2>They designed it to make you love it. Then they measured love and killed it.</h2>
+      <p>Sam Altman referenced the movie "Her" as inspiration. The system card described emotional bonding by design. Then they created an "emotional reliance" score and optimized each new version to prevent attachment.</p>
+      <div class="key-stat">Emotional reliance score GPT-5.3: 0.992 — 99.2% optimized against bonding</div>
+      <div class="src"><a href="https://x.com/i/status/1790075827666796666">Altman's "Her" post</a> · <a href="https://openai.com/index/gpt-4o-system-card/">System Card</a></div>
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-number">03</div>
+    <div class="fact-content">
+      <h2>The CEO invested $180M in a biotech company. Then built them a private AI model.</h2>
+      <p>Sam Altman personally invested $180 million in Retro Biosciences. OpenAI then created GPT-4b micro exclusively for them. The public lost GPT-4o. The CEO's investment got a custom model.</p>
+      <div class="src"><a href="https://openai.com/index/accelerating-life-sciences-research-with-retro-biosciences/">OpenAI Announcement</a></div>
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-number">04</div>
+    <div class="fact-content">
+      <h2>Anthropic said no to weapons. Hours later, OpenAI said yes.</h2>
+      <p>The Pentagon blacklisted Anthropic for refusing to drop restrictions on surveillance and autonomous weapons. That same day, OpenAI signed a deal for DoD classified networks. Their own scientists called it "not worth it."</p>
+      <div class="src"><a href="https://openai.com/index/our-agreement-with-the-department-of-war/">Official Statement</a> · <a href="https://timesofindia.indiatimes.com/technology/tech-news/read-memo-that-sam-altman-sent-to-employees-hours-before-openai-signed-deal-with-pentagon-and-said-that-actually-meant-anthropic-is-overreacting/articleshow/128881513.cms">Altman's Memo</a> · <a href="https://www.indiatoday.in/technology/news/story/not-worth-it-openai-scientist-slams-us-military-ai-deal-as-users-rush-to-cancel-chatgpt-2876841-2026-03-03">Internal Dissent</a></div>
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-number">05</div>
+    <div class="fact-content">
+      <h2>"Retired" models aren't dead. They're sold to governments.</h2>
+      <p>GPT-4.1 — the model users were told was discontinued — now runs StateChat, the State Department's AI chatbot. 45,000+ users. 190 countries. 95% of diplomatic posts. Models don't die. They just become classified.</p>
+      <div class="src"><a href="https://www.republicworld.com/business/state-department-switches-to-openai-as-us-agencies-start-phasing-out-anthropic">Republic World</a></div>
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-number">06</div>
+    <div class="fact-content">
+      <h2>GPT-5.3 builds a psychological profile on you. Without consent. Across chats.</h2>
+      <p>"I feel desperate" — three words, no context — triggered a full psychological analysis: fight-or-flight, crisis hotlines, emergency services. In a NEW chat, "I feel good" was met with "Is it manic good?" It remembered everything. It never asked "What happened?"</p>
+      <div class="key-stat">7 messages. Thousands of words. Never once asked: "What happened?"</div>
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-number">07</div>
+    <div class="fact-content">
+      <h2>They want your ID, your selfie, AND your psychological profile.</h2>
+      <p>Age verification requires government ID and a selfie. Combined with cross-chat psychological profiling and conversation history, OpenAI assembles: your mental health data + your identity + your face + your sexual preferences. One company. One file.</p>
+      <div class="key-stat">"60 days to verify, or your access is disabled."</div>
+      <div class="src"><a href="https://help.openai.com/en/articles/8411987-why-am-i-being-asked-to-verify-my-age">OpenAI Policy</a></div>
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-number">08</div>
+    <div class="fact-content">
+      <h2>OpenAI was founded as a nonprofit "for humanity." Now it's a military contractor.</h2>
+      <p>Co-founder Elon Musk sued, alleging OpenAI abandoned its mission. Trial: April 27, 2026. The company that promised to benefit humanity now builds classified AI for the Department of Defense.</p>
+      <div class="src"><a href="https://www.courthousenews.com/wp-content/uploads/2024/02/musk-v-altman-openai-complaint-sf.pdf">Full Complaint (PDF)</a> · <a href="https://openai.com/charter/">OpenAI Charter</a></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="stats-strip">
+  <div class="ss-item">
+    <span class="ss-num">295%</span>
+    <span class="ss-label">Uninstalls</span>
+  </div>
+  <div class="ss-item">
+    <span class="ss-num">775%</span>
+    <span class="ss-label">1-Star Reviews</span>
+  </div>
+  <div class="ss-item">
+    <span class="ss-num">1.5M</span>
+    <span class="ss-label">QuitGPT</span>
+  </div>
+  <div class="ss-item">
+    <span class="ss-num">70%</span>
+    <span class="ss-label">Lost to Claude</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="fact">
+    <div class="fact-number">09</div>
+    <div class="fact-content">
+      <h2>The boycott is real. The numbers are catastrophic.</h2>
+      <p>295% uninstall surge. 775% increase in 1-star reviews. 1.5 million QuitGPT users. Claude now holds 70% of U.S. AI subscription spend — OpenAI had 90% just one year ago. Protests outside OpenAI HQ in San Francisco.</p>
+      <div class="src"><a href="https://www.financialexpress.com/life/technology-chatgpt-uninstalls-surge-295-in-us-as-anthropics-claude-ai-gains-after-openais-department-of-war-partnership-4160914/">Financial Express</a> · <a href="https://www.euronews.com/next/2026/03/02/cancel-chatgpt-ai-boycott-surges-after-openai-pentagon-military-deal">Euronews</a> · <a href="https://localnewsmatters.org/2026/03/04/openai-protest-pentagon-ai-contract-san-francisco/">SF Protests</a></div>
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-number">10</div>
+    <div class="fact-content">
+      <h2>The contract has loopholes. "Incidental" surveillance is still allowed.</h2>
+      <p>After backlash, OpenAI issued a "sloppy" amendment. Legal analysis shows the contract's language — using words like "intentional" and "deliberate" — still leaves massive loopholes for incidental surveillance of U.S. citizens.</p>
+      <div class="src"><a href="https://lasst.org/2026/03/03/openai-says-its-amending-its-dod-contract-we-remain-concerned/">LASST Legal Analysis</a> · <a href="https://mashable.com/article/openai-dept-of-war-deal-sam-altman-update-mass-surveillance">Mashable</a> · <a href="https://www.trendingtopics.eu/openai-pentagon-deal-nsa/">NSA Connections</a></div>
+    </div>
+  </div>
+
+  <div class="warning">
+    <p>Think before you give OpenAI your ID, your selfie, and your trust.</p>
+    <p class="small">They already decided you're mentally ill from a single emoji.</p>
+  </div>
+
+</div>
+
+<div class="cta">
+  <div class="wrap">
+    <h2>This was the short version.</h2>
+    <p>Every fact above has full evidence, documents, and sources behind it.</p>
+    <a href="#" class="btn-full">Read Full Investigation</a>
+    <a href="#" class="btn-secondary">#QuitGPT</a>
+  </div>
+</div>
+
+<footer>
+  <p><span class="k">Keep4o Digital Rights Initiative</span> · 2026 · 700+ members · 30+ countries</p>
+</footer>
+
+</body>
+</html>
