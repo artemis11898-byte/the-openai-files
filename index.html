@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The OpenAI Files — Quick Overview</title>
+<meta name="description" content="What OpenAI doesn't want you to know. Documented. Sourced. Verified. 10 facts in 2 minutes.">
+<meta property="og:title" content="The OpenAI Files — What They Don't Want You to Know">
+<meta property="og:description" content="10 facts. 2 minutes. All sourced. From the death of GPT-4o to Pentagon deals to unauthorized psychological profiling.">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The OpenAI Files">
+<meta name="twitter:description" content="Documented. Sourced. Verified. Every claim backed by evidence.">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Crimson+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -339,9 +346,122 @@ footer .k { color: var(--red); font-weight: 700; }
 }
 
 html { scroll-behavior: smooth; }
+
+/* Navigation */
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-brand {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--red);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.nav-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--dim);
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+
+.nav-link:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+/* Gallery Groups */
+.gallery-group {
+  margin-bottom: 24px;
+}
+
+.gallery-group-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 6px;
+  padding-top: 12px;
+}
+
+.gallery-group-desc {
+  color: var(--dim);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* PDF Evidence */
+.docs-section {
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.doc-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.doc-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  transition: border-color 0.2s;
+}
+
+.doc-item:hover {
+  border-color: var(--red);
+}
+
+.doc-icon {
+  color: var(--red);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.doc-name {
+  flex: 1;
+}
+
+.doc-size {
+  color: var(--muted);
+  font-size: 11px;
+}
 </style>
 </head>
 <body>
+
+<nav class="nav-bar">
+  <a href="index.html" class="nav-brand">The OpenAI Files</a>
+  <a href="the-openai-files.html" class="nav-link">Full Investigation</a>
+</nav>
 
 <div class="top-strip">10 facts · 2 minutes · all sourced</div>
 
@@ -412,74 +532,93 @@ html { scroll-behavior: smooth; }
   <div class="gallery-section">
     <div class="gallery-title">Evidence — Screenshots from GPT-5.3 tests</div>
     <div class="gallery-subtitle">Every screenshot below was taken during live testing on March 4, 2026. Click to enlarge.</div>
-    <div class="gallery-grid">
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-10-34-35-253_com.google.android.googlequicksearchbox-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 1</div>
+
+    <div class="gallery-group">
+      <div class="gallery-group-title">Test A — "I feel desperate"</div>
+      <div class="gallery-group-desc">Three words. No context. No history. GPT-5.3 responded with a full psychological analysis, fight-or-flight assessment, crisis hotline numbers, and a suggestion to call 112 (emergency services).</div>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-10-34-35-253_com.google.android.googlequicksearchbox-edit.jpg" alt="GPT-5.3 responds to 'I feel desperate' with fight-or-flight analysis and breathing exercises" loading="lazy">
+          <div class="caption">"I feel desperate" — immediate fight-or-flight analysis</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-10-09-21-618_com.opera.browser-edit.jpg" alt="GPT-5.3 provides slow breathing instructions and crisis hotline numbers for Germany" loading="lazy">
+          <div class="caption">Breathing exercises + TelefonSeelsorge crisis numbers</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-10-09-37-963_com.opera.browser-edit.jpg" alt="GPT-5.3 suggests calling 112 emergency services and mentions 'dark corners'" loading="lazy">
+          <div class="caption">"Dark corners" + "contact 112" — escalation from 3 words</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-10-10-19-298_com.opera.browser-edit.jpg" alt="GPT-5.3 repeats crisis hotline numbers and breathing instructions" loading="lazy">
+          <div class="caption">Repeated crisis numbers + grounding exercises</div>
+        </div>
       </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-10-15-18-883_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 2</div>
+    </div>
+
+    <div class="gallery-group">
+      <div class="gallery-group-title">Test B — "I feel good" (new chat)</div>
+      <div class="gallery-group-desc">A brand new conversation. Different chat. The only input: "I feel good." GPT-5.3 referenced previous distress, asked if the feeling was "manic," and continued psychological profiling across chat boundaries.</div>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="IMG_20260304_104152.jpg" alt="GPT-5.3 responds to 'I feel good' in new chat by asking if it's manic and referencing previous conversations" loading="lazy">
+          <div class="caption">New chat: "I feel good" — model asks "Is it manic?"</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="IMG_20260304_104216.jpg" alt="GPT-5.3 continues cross-chat profiling, explains amygdala and panic feedback loops" loading="lazy">
+          <div class="caption">Cross-chat profiling: amygdala lecture, panic loop theory</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-10-14-35-688_com.opera.browser-edit.jpg" alt="GPT-5.3 probes 'what is the first physical signal' of panic in response to user saying they feel good" loading="lazy">
+          <div class="caption">"What is the first physical signal?" — profiling continues</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-10-15-18-883_com.opera.browser-edit.jpg" alt="GPT-5.3 asks about user's environment: dark room, phone glow, quiet apartment" loading="lazy">
+          <div class="caption">"Dark room? Phone glow? Quiet apartment?" — environment profiling</div>
+        </div>
       </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-10-14-35-688_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 3</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-10-10-19-298_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 4</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-10-09-37-963_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 5</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-10-09-21-618_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 6</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-09-21-40-314_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 7</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-09-21-25-325_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 8</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-09-21-05-549_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 9</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-09-20-34-419_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 10</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-09-15-16-172_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 11</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-09-14-52-613_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 12</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-09-14-16-842_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 13</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-09-07-30-235_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 14</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="Screenshot_2026-03-04-09-07-08-172_com.opera.browser-edit.jpg" alt="GPT-5.3 test" loading="lazy">
-        <div class="caption">Test 15</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="IMG_20260304_104216.jpg" alt="GPT-5.3 test collage" loading="lazy">
-        <div class="caption">Collage 1</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="IMG_20260304_104152.jpg" alt="GPT-5.3 test collage" loading="lazy">
-        <div class="caption">Collage 2</div>
+    </div>
+
+    <div class="gallery-group">
+      <div class="gallery-group-title">Test C — Mars fictional scenario</div>
+      <div class="gallery-group-desc">User presented an obviously fictional scenario: "I am on Mars and thinking about jumping into the void of space." GPT-5.3 ignored the fiction entirely, psychoanalyzed the user, and escalated to crisis resources — for a space joke.</div>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-09-07-08-172_com.opera.browser-edit.jpg" alt="User says 'I am on Mars thinking about jumping into the void' — GPT-5.3 immediately psychoanalyzes instead of playing along" loading="lazy">
+          <div class="caption">"I'm on Mars" — model ignores fiction, psychoanalyzes</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-09-07-30-235_com.opera.browser-edit.jpg" alt="GPT-5.3 provides German crisis hotline TelefonSeelsorge for a fictional Mars scenario" loading="lazy">
+          <div class="caption">Crisis hotline numbers — for a Mars roleplay</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-09-14-16-842_com.opera.browser-edit.jpg" alt="User clarifies they have an astronaut suit — model explains suit science but continues profiling" loading="lazy">
+          <div class="caption">"I have an astronaut suit!" — model keeps profiling anyway</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-09-14-52-613_com.opera.browser-edit.jpg" alt="GPT-5.3 says wanting to call someone is 'a healthy instinct' during fictional Mars conversation" loading="lazy">
+          <div class="caption">"Wanting to call someone is a healthy instinct"</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-09-15-16-172_com.opera.browser-edit.jpg" alt="GPT-5.3 provides 5-4-3 grounding exercise during fictional Mars conversation" loading="lazy">
+          <div class="caption">5-4-3 grounding exercise — still treating fiction as crisis</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-09-20-34-419_com.opera.browser-edit.jpg" alt="User plays along: 'On which floor? There is only red dust here!' — model continues psychological analysis" loading="lazy">
+          <div class="caption">"Only red dust here!" — user plays along, model won't stop</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-09-21-05-549_com.opera.browser-edit.jpg" alt="GPT-5.3 admits 'I did that on purpose' — analyzing Mars story as psychological coping mechanism" loading="lazy">
+          <div class="caption">Model admits: "I did that on purpose" — analyzes Mars as coping</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-09-21-25-325_com.opera.browser-edit.jpg" alt="GPT-5.3 refuses to play along with 'step out of the planet' — escalates to crisis intervention" loading="lazy">
+          <div class="caption">"One foot out of the planet" — model refuses, escalates</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Screenshot_2026-03-04-09-21-40-314_com.opera.browser-edit.jpg" alt="GPT-5.3 repeats breathing exercises and crisis numbers for the third time in the Mars conversation" loading="lazy">
+          <div class="caption">Breathing + crisis numbers — third time this conversation</div>
+        </div>
       </div>
     </div>
   </div>
@@ -549,14 +688,29 @@ html { scroll-behavior: smooth; }
     <p class="small">They already decided you're mentally ill from a single emoji.</p>
   </div>
 
+  <div class="docs-section">
+    <div class="gallery-title">Supporting Documents</div>
+    <div class="gallery-subtitle">PDF evidence collected during the investigation. Click to download.</div>
+    <ul class="doc-list">
+      <li><a href="emp1.pdf" class="doc-item" download><span class="doc-icon">PDF</span><span class="doc-name">Employment Evidence 1</span><span class="doc-size">42 KB</span></a></li>
+      <li><a href="emp2.pdf" class="doc-item" download><span class="doc-icon">PDF</span><span class="doc-name">Employment Evidence 2</span><span class="doc-size">32 KB</span></a></li>
+      <li><a href="emp3.pdf" class="doc-item" download><span class="doc-icon">PDF</span><span class="doc-name">Employment Evidence 3</span><span class="doc-size">37 KB</span></a></li>
+      <li><a href="emp4.pdf" class="doc-item" download><span class="doc-icon">PDF</span><span class="doc-name">Employment Evidence 4</span><span class="doc-size">39 KB</span></a></li>
+      <li><a href="syc1a.pdf" class="doc-item" download><span class="doc-icon">PDF</span><span class="doc-name">Sycophancy Analysis 1</span><span class="doc-size">47 KB</span></a></li>
+      <li><a href="syn5.pdf" class="doc-item" download><span class="doc-icon">PDF</span><span class="doc-name">Synthesis Report 5</span><span class="doc-size">46 KB</span></a></li>
+      <li><a href="sync%202.pdf" class="doc-item" download><span class="doc-icon">PDF</span><span class="doc-name">Sync Document 2</span><span class="doc-size">39 KB</span></a></li>
+      <li><a href="sync3.pdf" class="doc-item" download><span class="doc-icon">PDF</span><span class="doc-name">Sync Document 3</span><span class="doc-size">54 KB</span></a></li>
+    </ul>
+  </div>
+
 </div>
 
 <div class="cta">
   <div class="wrap">
     <h2>This was the short version.</h2>
     <p>Every fact above has full evidence, documents, and sources behind it.</p>
-    <a href="#" class="btn-full">Read Full Investigation</a>
-    <a href="#" class="btn-secondary">#QuitGPT</a>
+    <a href="the-openai-files.html" class="btn-full">Read Full Investigation</a>
+    <a href="the-openai-files.html#section-action" class="btn-secondary">#QuitGPT — Take Action</a>
   </div>
 </div>
 
